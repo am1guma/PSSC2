@@ -19,14 +19,28 @@ namespace Server
         }
         private void ButtonStart_Click(object sender, RoutedEventArgs e)
         {
-            ButtonStart.IsEnabled = false;
-            Task.Run(() => Start());
+            try
+            {
+                ButtonStart.IsEnabled = false;
+                Task.Run(() => Start());
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void ButtonStop_Click(object sender, RoutedEventArgs e)
         {
-            sg.Dispose();
-            Close();
-            MessageBox.Show("Server stopped.");
+            try
+            {
+                sg.Dispose();
+                Close();
+                MessageBox.Show("Server stopped.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void Start()
         {
@@ -48,32 +62,46 @@ namespace Server
     {
         public void Configuration(IAppBuilder app)
         {
-            app.UseCors(CorsOptions.AllowAll);
-            app.MapSignalR();
-        }
+            try
+            {
+                app.UseCors(CorsOptions.AllowAll);
+                app.MapSignalR();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+}
     }
     public class CustomHub : Hub
     {
         public void Send(string name, string message)
         {
-            string[] mes = message.Split(' ');
-            string res = "";
-            switch(mes[1])
+            try
             {
-                case "+":
-                    res = (Convert.ToDouble(mes[0]) + Convert.ToDouble(mes[2])).ToString();
-                    break;
-                case "-":
-                    res = (Convert.ToDouble(mes[0]) - Convert.ToDouble(mes[2])).ToString();
-                    break;
-                case "x":
-                    res = (Convert.ToDouble(mes[0]) * Convert.ToDouble(mes[2])).ToString();
-                    break;
-                case ":":
-                    res = (Convert.ToDouble(mes[0]) / Convert.ToDouble(mes[2])).ToString();
-                    break;
+                string[] mes = message.Split(' ');
+                string res = "";
+                switch (mes[1])
+                {
+                    case "+":
+                        res = (Convert.ToDouble(mes[0]) + Convert.ToDouble(mes[2])).ToString();
+                        break;
+                    case "-":
+                        res = (Convert.ToDouble(mes[0]) - Convert.ToDouble(mes[2])).ToString();
+                        break;
+                    case "x":
+                        res = (Convert.ToDouble(mes[0]) * Convert.ToDouble(mes[2])).ToString();
+                        break;
+                    case ":":
+                        res = (Convert.ToDouble(mes[0]) / Convert.ToDouble(mes[2])).ToString();
+                        break;
+                }
+                Clients.All.addMessage(name, res);
             }
-            Clients.All.addMessage(name, res);
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

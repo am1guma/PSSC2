@@ -1,18 +1,18 @@
-﻿<Window x:Class="OanaMariaPalcu.MainWindow"
+﻿<Window x:Class="OanaMariaPalcu.Calculator"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OanaMariaPalcu"
         xmlns:ViewModel="clr-namespace:OanaMariaPalcu.ViewModel"
-        d:DataContext="{d:DesignInstance ViewModel:Express}"
         mc:Ignorable="d"
         Title="Calculator" Height="200" Width="400" Icon="/OanaMariaPalcu;component/calculator.ico">
     <Window.DataContext>
-        <ViewModel:Express/>
+        <ViewModel:CalculatorViewModel/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -23,10 +23,10 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBox  Grid.Column="0" Text="{Binding Path=Val1, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox  Grid.Column="1" Text="{Binding Path=Val2, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox  Grid.Column="0" Text="{Binding Expression.Val1, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox  Grid.Column="1" Text="{Binding Expression.Val2, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
-        <TextBox  Grid.Row="1" Text="{Binding Path=Result, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
+        <TextBox  Grid.Row="1" Text="{Binding Expression.Result, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -34,11 +34,12 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Content="+" Grid.Column="0" Click="Button_Click_Sum"/>
-            <Button Content="-" Grid.Column="1" Click="Button_Click_Sub"/>
-            <Button Content="x" Grid.Column="2" Click="Button_Click_Mul"/>
-            <Button Content=":" Grid.Column="3" Click="Button_Click_Div"/>
+            <Button Content="+" Grid.Column="0" Command="{Binding AddCommand}"/>
+            <Button Content="-" Grid.Column="1" Command="{Binding SubCommand}"/>
+            <Button Content="x" Grid.Column="2" Command="{Binding MulCommand}"/>
+            <Button Content=":" Grid.Column="3" Command="{Binding DivCommand}"/>
         </Grid>
-        <Button Content="Reset" Grid.Row="3" Click="Button_Click_Reset"/>
+        <Button Content="Reset" Grid.Row="3" Command="{Binding ResetCommand}"/>
+        <Button Content="Adaugare functie" Grid.Row="4" Command="{Binding AdaugareFunctieCommand}"/>
     </Grid>
 </Window>

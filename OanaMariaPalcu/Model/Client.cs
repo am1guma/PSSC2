@@ -13,35 +13,63 @@ namespace OanaMariaPalcu.Model
         public static HubConnection con { get; set; }
         public static void SendValues(string val1, string val2,string operation)
         {
-            string sendMessage = val1 + " " + operation + " " + val2;
-            proxy.Invoke("Send", user, sendMessage);
+            try
+            {
+                string sendMessage = val1 + " " + operation + " " + val2;
+                proxy.Invoke("Send", user, sendMessage);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         
         private static void ConnectionClosed()
         {
-            var dispatcher = Application.Current.Dispatcher;
-        }
-        public static void SignIn()
-        {
-            user = "Oana";
-            ConnectAsync();
-        }
-        private static async void ConnectAsync()
-        {
-            con = new HubConnection(server);
-            con.Closed += ConnectionClosed;
-            proxy = con.CreateHubProxy("CustomHub");
-            proxy.On<string, string>("AddMessage", (name, message) =>
-                Operation.val.Result = message
-            );
             try
             {
-                await con.Start();
+                var dispatcher = Application.Current.Dispatcher;
             }
-            catch (HttpRequestException)
+            catch(Exception ex)
             {
-                return;
+                MessageBox.Show(ex.Message);
             }
-        }
+}
+        public static void SignIn()
+        {
+            try
+            {
+                user = "Oana";
+                ConnectAsync();
+            }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+}
+        private static async void ConnectAsync()
+        {
+            try
+            {
+                con = new HubConnection(server);
+                con.Closed += ConnectionClosed;
+                proxy = con.CreateHubProxy("CustomHub");
+                proxy.On<string, string>("AddMessage", (name, message) =>
+                    Operation.result = message
+                );
+                try
+                {
+                    await con.Start();
+                }
+                catch (HttpRequestException)
+                {
+                    return;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+}
     }
 }

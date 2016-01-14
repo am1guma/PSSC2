@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Command;
+using OanaMariaPalcu.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,8 +40,5 @@ namespace OanaMariaPalcu.ViewModel
                 OnPropertyChanged("Result");
             }
         }
-
-        public Express()
-        { }
     }
 }

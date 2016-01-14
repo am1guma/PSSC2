@@ -1,0 +1,52 @@
+﻿<Window x:Class="OanaMariaPalcu.View.AdaugareFunctie"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OanaMariaPalcu.View"
+        xmlns:ViewModel="clr-namespace:OanaMariaPalcu.ViewModel"
+        
+        mc:Ignorable="d"
+        Title="AdaugareFunctie" Height="200" Width="400" Icon="/OanaMariaPalcu;component/calculator.ico">
+    <Window.DataContext>
+        <ViewModel:AdaugareFunctieViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="a=" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox  Grid.Column="1" Text="{Binding A, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="30"/>
+            <Label Grid.Column="2" Content="b=" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox  Grid.Column="3" Text="{Binding B, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="30"/>
+            <Label Grid.Column="4" Content="c=" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox  Grid.Column="5" Text="{Binding C, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="30"/>
+        </Grid>
+        <TextBlock Grid.Row="1" Text="f(x)=ax^2 + bx + c" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Content="Aflare Radacini" Grid.Row="2" Command="{Binding AflareRadaciniCommand}"/>
+        <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="x1 = {0} ; x2 = {1}">
+                    <Binding Path="X1" />
+                    <Binding Path="X2" />
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        <Button Content="Grafic" Grid.Row="4" Command="{Binding GraficCommand}"/>
+        <Button Content="Reset" Grid.Row="5" Command="{Binding ResetCommand}"/>
+    </Grid>
+</Window>

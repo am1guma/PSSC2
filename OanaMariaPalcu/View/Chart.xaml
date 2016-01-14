@@ -1,0 +1,28 @@
+﻿<Window x:Class="OanaMariaPalcu.View.Chart"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OanaMariaPalcu.View"
+        xmlns:cht="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        xmlns:ViewModel="clr-namespace:OanaMariaPalcu.ViewModel"
+        mc:Ignorable="d"
+        Icon="/OanaMariaPalcu;component/calculator.ico"
+        Title="Chart" Height="300" Width="300">
+
+    <Window.Resources>
+        <ViewModel:GraficBind x:Key="Data"/>
+    </Window.Resources>
+    <Grid>
+        <cht:Chart Name="populationChart"
+        Title="Graficul functiei de gradul 2" Background="LightBlue">
+            <cht:Chart.Series>
+                <cht:LineSeries Title="Grafic"
+                ItemsSource="{StaticResource Data}"
+                IndependentValueBinding="{Binding Path=X}"
+                DependentValueBinding="{Binding Path=Y}">
+                </cht:LineSeries>
+            </cht:Chart.Series>
+        </cht:Chart>
+    </Grid>
+</Window>
