@@ -5,6 +5,7 @@ C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Micro
 C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.dll
 C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Microsoft.Owin.Cors.dll
 C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Microsoft.Owin.dll
+C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Microsoft.Owin.Host.HttpListener.dll
 C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
 C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Microsoft.Owin.Hosting.dll
 C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Microsoft.Owin.Security.dll
@@ -15,6 +16,7 @@ C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Micro
 C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.xml
 C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Microsoft.Owin.xml
 C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Microsoft.Owin.Cors.xml
+C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Microsoft.Owin.Host.HttpListener.xml
 C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Microsoft.Owin.Hosting.xml
 C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Microsoft.Owin.Security.xml
@@ -30,5 +32,3 @@ C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\obj\Debug\Serve
 C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\obj\Debug\Server.csproj.GenerateResource.Cache
 C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\obj\Debug\Server.exe
 C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\obj\Debug\Server.pdb
-C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Microsoft.Owin.Host.HttpListener.dll
-C:\Users\Oana Maria Palcu\Documents\GitHub\OanaMariaPalcu\Server\bin\Debug\Microsoft.Owin.Host.HttpListener.xml
